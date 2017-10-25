@@ -1,4 +1,4 @@
-C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 14:43:33 PAGE 1   
+C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 16:51:19 PAGE 1   
 
 
 C51 COMPILER V9.56.0.0, COMPILATION OF MODULE CARCHASSIS
@@ -11,108 +11,317 @@ line level    source
    1          #include<reg51.h>
    2          #define uchar unsigned char
    3          #define uint unsigned int
-   4            
-   5          void delay_ms(unsigned int x)
-   6          {
-   7   1        uchar t;
-   8   1        while(x--)
-   9   1        {
-  10   2          for(t=0;t<120;t++);
-  11   2        }
-  12   1      }
-  13          
-  14          void main()
-  15          {
-  16   1        P2=0xFE;
-  17   1        delay_ms(500);
-  18   1        while(1)
-  19   1        {
-  20   2          P2=0xFE;
-  21   2          delay_ms(500);
-  22   2          P2=0xFD;
-  23   2          delay_ms(500);
-  24   2          P2=0xFB;
-  25   2          delay_ms(500);
-  26   2        }
-  27   1      }
-C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 14:43:33 PAGE 2   
+   4          
+   5          //lefa
+   6          sbit lefa1 = P2^1;
+   7          sbit lefa2 = P2^2;
+   8          sbit lefap = P2^0;
+   9          //lefb 2
+  10          sbit lefb1 = P2^3;
+  11          sbit lefb2 = P2^4;
+  12          sbit lefbp = P2^5;
+  13          //riga 1
+  14          sbit riga1 = P1^1;
+  15          sbit riga2 = P1^2;
+  16          sbit rigap = P1^0;
+  17          //rigb 2
+  18          sbit rigb1 = P1^3;
+  19          sbit rigb2 = P1^4;
+  20          sbit rigbp = P1^5;
+  21          
+  22          void ctrlm(uchar motorn,uchar dire)
+  23          {
+  24   1        //motorn 0:lefta 1:leftb 2:righta 3:rightb
+  25   1        //dire means 1:goback  2:go  other:stop
+  26   1        bit out1,out2,outp;
+  27   1        out1=1;out2=1;outp=1;
+  28   1        switch(dire)
+  29   1        {
+  30   2          case 0:
+  31   2            out1=1;out2=1;outp=1;break;
+  32   2          case 1:
+  33   2            out1=1;out2=0;outp=1;break;
+  34   2          case 2:
+  35   2            out1=0;out2=1;outp=1;break;
+  36   2          default:
+  37   2            out1=1;out2=1;outp=1;break;
+  38   2        }
+  39   1        switch(motorn)
+  40   1        {
+  41   2          case 0:
+  42   2            lefa1=out1;lefa2=out2;lefap=outp;break;
+  43   2          case 1:
+  44   2            lefb1=out1;lefb2=out2;lefbp=outp;break;
+  45   2          case 2:
+  46   2            riga1=out1;riga2=out2;rigap=outp;break;
+  47   2          case 3:
+  48   2            rigb1=out1;rigb2=out2;rigbp=outp;break;
+  49   2        }
+  50   1      }
+  51          
+  52          void delay(unsigned int x)
+  53          {
+  54   1        uchar t;
+C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 16:51:19 PAGE 2   
+
+  55   1        while(x--)
+  56   1        {
+  57   2          for(t=0;t<120;t++);
+  58   2        }
+  59   1      }
+  60          
+  61          void main()
+  62          {
+  63   1        P1=0xFF;
+  64   1        P2=0xFF;
+  65   1        delay(1000);
+  66   1        while(1)
+  67   1        {
+  68   2          ctrlm(0,1);
+  69   2          delay(2000);
+  70   2          ctrlm(1,1);
+  71   2          delay(2000);
+  72   2          ctrlm(2,1);
+  73   2          delay(2000);
+  74   2          ctrlm(3,1);
+  75   2          delay(2000);
+  76   2          ctrlm(0,0);
+  77   2          delay(2000);
+  78   2          ctrlm(1,0);
+  79   2          delay(2000);
+  80   2          ctrlm(2,0);
+  81   2          delay(2000);
+  82   2          ctrlm(3,0);
+  83   2          delay(4000);
+  84   2        }
+  85   1      }
+C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 16:51:19 PAGE 3   
 
 ASSEMBLY LISTING OF GENERATED OBJECT CODE
 
 
-             ; FUNCTION L?0011 (BEGIN)
-0000 75A0FE            MOV     P2,#0FEH
-0003         L?0012:
-0003 7FF4              MOV     R7,#0F4H
-0005 7E01              MOV     R6,#01H
-             ; FUNCTION _delay_ms (BEGIN)
-                                           ; SOURCE LINE # 5
+             ; FUNCTION _ctrlm (BEGIN)
+                                           ; SOURCE LINE # 22
+;---- Variable 'dire' assigned to Register 'R5' ----
+;---- Variable 'motorn' assigned to Register 'R7' ----
+                                           ; SOURCE LINE # 23
+                                           ; SOURCE LINE # 27
+0000 D200        R     SETB    out1
+0002 D200        R     SETB    out2
+0004 D200        R     SETB    outp
+                                           ; SOURCE LINE # 28
+0006 ED                MOV     A,R5
+0007 14                DEC     A
+0008 6007              JZ      ?C0003
+000A 14                DEC     A
+000B 600C              JZ      ?C0004
+000D 2402              ADD     A,#02H
+                                           ; SOURCE LINE # 29
+                                           ; SOURCE LINE # 30
+000F         ?C0002:
+                                           ; SOURCE LINE # 31
+000F 800C              SJMP    ?C0022
+                                           ; SOURCE LINE # 32
+0011         ?C0003:
+                                           ; SOURCE LINE # 33
+0011 D200        R     SETB    out1
+0013 C200        R     CLR     out2
+0015 D200        R     SETB    outp
+0017 800A              SJMP    ?C0001
+                                           ; SOURCE LINE # 34
+0019         ?C0004:
+                                           ; SOURCE LINE # 35
+0019 C200        R     CLR     out1
+001B 8002              SJMP    ?C0023
+                                           ; SOURCE LINE # 36
+001D         ?C0022:
+001D D200        R     SETB    out1
+001F         ?C0023:
+001F D200        R     SETB    out2
+0021 D200        R     SETB    outp
+                                           ; SOURCE LINE # 38
+0023         ?C0001:
+                                           ; SOURCE LINE # 39
+0023 EF                MOV     A,R7
+0024 14                DEC     A
+0025 6017              JZ      ?C0008
+0027 14                DEC     A
+0028 6021              JZ      ?C0009
+002A 14                DEC     A
+002B 602B              JZ      ?C0010
+002D 2403              ADD     A,#03H
+002F 7033              JNZ     ?C0011
+                                           ; SOURCE LINE # 40
+                                           ; SOURCE LINE # 41
+0031         ?C0007:
+                                           ; SOURCE LINE # 42
+0031 A200        R     MOV     C,out1
+0033 92A1              MOV     lefa1,C
+0035 A200        R     MOV     C,out2
+0037 92A2              MOV     lefa2,C
+C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 16:51:19 PAGE 4   
+
+0039 A200        R     MOV     C,outp
+003B 92A0              MOV     lefap,C
+003D 22                RET     
+                                           ; SOURCE LINE # 43
+003E         ?C0008:
+                                           ; SOURCE LINE # 44
+003E A200        R     MOV     C,out1
+0040 92A3              MOV     lefb1,C
+0042 A200        R     MOV     C,out2
+0044 92A4              MOV     lefb2,C
+0046 A200        R     MOV     C,outp
+0048 92A5              MOV     lefbp,C
+004A 22                RET     
+                                           ; SOURCE LINE # 45
+004B         ?C0009:
+                                           ; SOURCE LINE # 46
+004B A200        R     MOV     C,out1
+004D 9291              MOV     riga1,C
+004F A200        R     MOV     C,out2
+0051 9292              MOV     riga2,C
+0053 A200        R     MOV     C,outp
+0055 9290              MOV     rigap,C
+0057 22                RET     
+                                           ; SOURCE LINE # 47
+0058         ?C0010:
+                                           ; SOURCE LINE # 48
+0058 A200        R     MOV     C,out1
+005A 9293              MOV     rigb1,C
+005C A200        R     MOV     C,out2
+005E 9294              MOV     rigb2,C
+0060 A200        R     MOV     C,outp
+0062 9295              MOV     rigbp,C
+                                           ; SOURCE LINE # 49
+                                           ; SOURCE LINE # 50
+0064         ?C0011:
+0064 22                RET     
+             ; FUNCTION _ctrlm (END)
+
+             ; FUNCTION L?0024 (BEGIN)
+0000         L?0025:
+0000 7FD0              MOV     R7,#0D0H
+0002 7E07              MOV     R6,#07H
+             ; FUNCTION _delay (BEGIN)
+                                           ; SOURCE LINE # 52
 ;---- Variable 't' assigned to Register 'R5' ----
 ;---- Variable 'x' assigned to Register 'R6/R7' ----
-                                           ; SOURCE LINE # 6
-0007         ?C0001:
-                                           ; SOURCE LINE # 8
-0007 EF                MOV     A,R7
-0008 1F                DEC     R7
-0009 AA06              MOV     R2,AR6
-000B 7001              JNZ     ?C0010
-000D 1E                DEC     R6
-000E         ?C0010:
-000E 4A                ORL     A,R2
-000F 600B              JZ      ?C0006
-                                           ; SOURCE LINE # 9
-                                           ; SOURCE LINE # 10
-0011 E4                CLR     A
-0012 FD                MOV     R5,A
-0013         ?C0003:
-0013 ED                MOV     A,R5
-0014 C3                CLR     C
-0015 9478              SUBB    A,#078H
-0017 50EE              JNC     ?C0001
-0019 0D                INC     R5
-001A 80F7              SJMP    ?C0003
-                                           ; SOURCE LINE # 11
-                                           ; SOURCE LINE # 12
-001C         ?C0006:
-001C 22                RET     
-             ; FUNCTION _delay_ms (END)
+                                           ; SOURCE LINE # 53
+0004         ?C0012:
+                                           ; SOURCE LINE # 55
+0004 EF                MOV     A,R7
+0005 1F                DEC     R7
+0006 AA06              MOV     R2,AR6
+0008 7001              JNZ     ?C0021
+000A 1E                DEC     R6
+000B         ?C0021:
+000B 4A                ORL     A,R2
+000C 600B              JZ      ?C0017
+                                           ; SOURCE LINE # 56
+                                           ; SOURCE LINE # 57
+000E E4                CLR     A
+000F FD                MOV     R5,A
+0010         ?C0014:
+C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 16:51:19 PAGE 5   
+
+0010 ED                MOV     A,R5
+0011 C3                CLR     C
+0012 9478              SUBB    A,#078H
+0014 50EE              JNC     ?C0012
+0016 0D                INC     R5
+0017 80F7              SJMP    ?C0014
+                                           ; SOURCE LINE # 58
+                                           ; SOURCE LINE # 59
+0019         ?C0017:
+0019 22                RET     
+             ; FUNCTION _delay (END)
 
              ; FUNCTION main (BEGIN)
-                                           ; SOURCE LINE # 14
-                                           ; SOURCE LINE # 15
-                                           ; SOURCE LINE # 16
-                                           ; SOURCE LINE # 17
-0000 120000      R     LCALL   L?0011
-0003         ?C0007:
-                                           ; SOURCE LINE # 18
-                                           ; SOURCE LINE # 19
-                                           ; SOURCE LINE # 20
-                                           ; SOURCE LINE # 21
-0003 120000      R     LCALL   L?0011
-                                           ; SOURCE LINE # 22
-0006 75A0FD            MOV     P2,#0FDH
-                                           ; SOURCE LINE # 23
-0009 120000      R     LCALL   L?0012
-                                           ; SOURCE LINE # 24
-000C 75A0FB            MOV     P2,#0FBH
-                                           ; SOURCE LINE # 25
-000F 120000      R     LCALL   L?0012
-                                           ; SOURCE LINE # 26
-0012 80EF              SJMP    ?C0007
-C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 14:43:33 PAGE 3   
+                                           ; SOURCE LINE # 61
+                                           ; SOURCE LINE # 62
+                                           ; SOURCE LINE # 63
+0000 7590FF            MOV     P1,#0FFH
+                                           ; SOURCE LINE # 64
+0003 75A0FF            MOV     P2,#0FFH
+                                           ; SOURCE LINE # 65
+0006 7FE8              MOV     R7,#0E8H
+0008 7E03              MOV     R6,#03H
+000A 120000      R     LCALL   _delay
+000D         ?C0018:
+                                           ; SOURCE LINE # 66
+                                           ; SOURCE LINE # 67
+                                           ; SOURCE LINE # 68
+000D 7D01              MOV     R5,#01H
+000F E4                CLR     A
+0010 FF                MOV     R7,A
+0011 120000      R     LCALL   _ctrlm
+                                           ; SOURCE LINE # 69
+0014 120000      R     LCALL   L?0024
+                                           ; SOURCE LINE # 70
+0017 7D01              MOV     R5,#01H
+0019 7F01              MOV     R7,#01H
+001B 120000      R     LCALL   _ctrlm
+                                           ; SOURCE LINE # 71
+001E 120000      R     LCALL   L?0024
+                                           ; SOURCE LINE # 72
+0021 7D01              MOV     R5,#01H
+0023 7F02              MOV     R7,#02H
+0025 120000      R     LCALL   _ctrlm
+                                           ; SOURCE LINE # 73
+0028 120000      R     LCALL   L?0025
+                                           ; SOURCE LINE # 74
+002B 7D01              MOV     R5,#01H
+002D 7F03              MOV     R7,#03H
+002F 120000      R     LCALL   _ctrlm
+                                           ; SOURCE LINE # 75
+0032 120000      R     LCALL   L?0025
+                                           ; SOURCE LINE # 76
+0035 E4                CLR     A
+0036 FD                MOV     R5,A
+0037 FF                MOV     R7,A
+0038 120000      R     LCALL   _ctrlm
+                                           ; SOURCE LINE # 77
+003B 120000      R     LCALL   L?0025
+                                           ; SOURCE LINE # 78
+003E E4                CLR     A
+003F FD                MOV     R5,A
+0040 7F01              MOV     R7,#01H
+C51 COMPILER V9.56.0.0   CARCHASSIS                                                        10/25/2017 16:51:19 PAGE 6   
 
+0042 120000      R     LCALL   _ctrlm
+                                           ; SOURCE LINE # 79
+0045 120000      R     LCALL   L?0025
+                                           ; SOURCE LINE # 80
+0048 E4                CLR     A
+0049 FD                MOV     R5,A
+004A 7F02              MOV     R7,#02H
+004C 120000      R     LCALL   _ctrlm
+                                           ; SOURCE LINE # 81
+004F 120000      R     LCALL   L?0025
+                                           ; SOURCE LINE # 82
+0052 E4                CLR     A
+0053 FD                MOV     R5,A
+0054 7F03              MOV     R7,#03H
+0056 120000      R     LCALL   _ctrlm
+                                           ; SOURCE LINE # 83
+0059 7FA0              MOV     R7,#0A0H
+005B 7E0F              MOV     R6,#0FH
+005D 120000      R     LCALL   _delay
+                                           ; SOURCE LINE # 84
+0060 80AB              SJMP    ?C0018
              ; FUNCTION main (END)
 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     49    ----
+   CODE SIZE        =    225    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
-   BIT SIZE         =   ----    ----
+   BIT SIZE         =   ----       3
 END OF MODULE INFORMATION.
 
 
