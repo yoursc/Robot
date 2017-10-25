@@ -1,0 +1,3 @@
+".\Objects\CarChassis.obj" 
+TO ".\Objects\CarChassis" 
+PRINT(".\Listings\CarChassis.m51") RAMSIZE(256) 
