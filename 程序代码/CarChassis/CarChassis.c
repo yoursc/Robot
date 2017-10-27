@@ -2,50 +2,48 @@
 #define uchar unsigned char
 #define uint unsigned int
 
-//lefa
-sbit lefa1 = P2^1;
-sbit lefa2 = P2^2;
-sbit lefap = P2^0;
-//lefb 2
-sbit lefb1 = P2^3;
-sbit lefb2 = P2^4;
-sbit lefbp = P2^5;
-//riga 1
-sbit riga1 = P1^1;
-sbit riga2 = P1^2;
-sbit rigap = P1^0;
-//rigb 2
-sbit rigb1 = P1^3;
-sbit rigb2 = P1^4;
-sbit rigbp = P1^5;
+sbit motor_a1 = P0^0;
+sbit motor_a2 = P0^1;
+sbit motor_b1 = P0^2;
+sbit motor_b2 = P0^3;
+sbit motor_c1 = P0^4;
+sbit motor_c2 = P0^5;
+sbit motor_d1 = P0^6;
+sbit motor_d2 = P0^7;
+sbit motor_ap = P2^0;
+sbit motor_bp = P2^1;
+sbit motor_cp = P2^2;
+sbit motor_dp = P2^3;
 
-void ctrlm(uchar motorn,uchar dire)
+void ctrlm(uchar motor,uchar dire)
 {
-	//motorn 0:lefta 1:leftb 2:righta 3:rightb
-	//dire means 1:goback  2:go  other:stop
-	bit out1,out2,outp;
-	out1=1;out2=1;outp=1;
+	uchar data1,data2,datap;
 	switch(dire)
 	{
 		case 0:
-			out1=1;out2=1;outp=1;break;
+			data1=0;data2=0;break;
 		case 1:
-			out1=1;out2=0;outp=1;break;
+			data1=1;data2=0;break;
 		case 2:
-			out1=0;out2=1;outp=1;break;
-		default:
-			out1=1;out2=1;outp=1;break;
-	}
-	switch(motorn)
-	{
-		case 0:
-			lefa1=out1;lefa2=out2;lefap=outp;break;
-		case 1:
-			lefb1=out1;lefb2=out2;lefbp=outp;break;
-		case 2:
-			riga1=out1;riga2=out2;rigap=outp;break;
+			data1=0;data2=1;break;
 		case 3:
-			rigb1=out1;rigb2=out2;rigbp=outp;break;
+			data1=1;data2=1;break;
+		default:
+			data1=0;data2=0;break;
+	}
+	
+	switch(motor)
+	{
+		case 'a':
+			motor_a1=data1;motor_a2=data2;motor_ap=datap;break;
+		case 'b':
+			motor_b1=data1;motor_b2=data2;motor_bp=datap;break;
+		case 'c':
+			motor_c1=data1;motor_c2=data2;motor_cp=datap;break;
+		case 'd':
+			motor_d1=data1;motor_d2=data2;motor_dp=datap;break;
+		default:
+			break;
 	}
 }
 
@@ -61,25 +59,26 @@ void delay(unsigned int x)
 void main()
 {
 	P1=0xFF;
-	P2=0xFF;
+	P0=0xFF;
 	delay(1000);
 	while(1)
 	{
-		ctrlm(0,1);
+		ctrlm('a',1);
 		delay(2000);
-		ctrlm(1,1);
+		ctrlm('b',1);
 		delay(2000);
-		ctrlm(2,1);
+		ctrlm('c',1);
 		delay(2000);
-		ctrlm(3,1);
+		ctrlm('d',1);
 		delay(2000);
-		ctrlm(0,0);
+		ctrlm('a',3);
 		delay(2000);
-		ctrlm(1,0);
+		ctrlm('b',3);
 		delay(2000);
-		ctrlm(2,0);
+		ctrlm('c',3);
 		delay(2000);
-		ctrlm(3,0);
-		delay(4000);
+		ctrlm('d',3);
+		delay(2000);
+		P0=0xFF;
 	}
 }
