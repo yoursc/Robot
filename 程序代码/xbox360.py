@@ -16,34 +16,28 @@ while True:
         # tpye int3
         if incode==0:
             print('LT')
-            print(inval)
         elif incode==1:
             print('LG')
-            print(inval)
         elif incode==2:
             print('L2')
-            print(inval)
         elif incode==3:
             print('RT')
-            print(inval)
         elif incode==4:
             print('RG')
-            print(inval)
         elif incode==5:
             print('R2')
-            print(inval)
         # type int1u
         elif incode==16:
             if inval==1:
                 print('Right')
-            elif (inval== -1):
+            elif inval==-1:
                 print('Left')
         elif incode==17:
             if inval==-1:
                 print('Up')
             elif inval==1:
                 print('Down')
-        if incode==304:
+        elif incode==304:
             print('A')
         elif incode==305:
             print('B')
@@ -53,6 +47,8 @@ while True:
             print('Y')
         elif incode==314:
             print('SELET')
+        elif incode==315:
+            print('START')
         elif incode==316:
             print('HOME')
         elif incode==310:
@@ -63,9 +59,8 @@ while True:
             print('L0')
         elif incode==318:
             print('R0')
-
         else:
             print('UnknowKey')
             print(incode)
-            print(inval)
+        print(inval)
         break
