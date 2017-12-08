@@ -7,20 +7,20 @@ import sys
 class car(object):
     def __init__(self):
         # 定义连线端口
-        self.RA1 = 22
+        self.RA1 = 17
         self.RA2 = 27
-        self.RB1 = 24
-        self.RB2 = 23
+        self.RB1 = 23
+        self.RB2 = 24
         self.LA1 = 6
-        self.LA2 = 5
-        self.LB1 = 21
+        self.LA2 = 13
+        self.LB1 = 12
         self.LB2 = 20
-        self.PWMRA = 17
+        self.PWMRA = 22
         self.PWMRB = 18
-        self.PWMLA = 13
-        self.PWMLB = 12
-        self.Frequency = 200
-        self.PWM = 50
+        self.PWMLA = 5
+        self.PWMLB = 21
+        self.Frequency = 300
+        self.PWM = 25
     def GPIO_INIT(self):
         # 初始化PIN口
         GPIO.setmode(GPIO.BCM)
