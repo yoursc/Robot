@@ -57,15 +57,15 @@ class car(object):
         elif wheel=='RB':
             motor1=self.RB1
             motor2=self.RB2
-            self.RA.ChangeDutyCycle(motorp)
+            self.RB.ChangeDutyCycle(motorp)
         elif wheel=='LA':
             motor1=self.LA1
             motor2=self.LA2
-            self.RA.ChangeDutyCycle(motorp)
+            self.LA.ChangeDutyCycle(motorp)
         elif wheel=='LB':
             motor1=self.LB1
             motor2=self.LB2
-            self.RA.ChangeDutyCycle(motorp)
+            self.LB.ChangeDutyCycle(motorp)
         # 控制字输出
         if pwm==0:
             GPIO.output(motor1,GPIO.LOW)
