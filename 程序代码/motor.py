@@ -20,7 +20,7 @@ class car(object):
         self.PWMLA = 5
         self.PWMLB = 21
         self.Frequency = 300
-        self.PWM = 25
+        self.PWM = 40
     def GPIO_INIT(self):
         # 初始化PIN口
         GPIO.setmode(GPIO.BCM)

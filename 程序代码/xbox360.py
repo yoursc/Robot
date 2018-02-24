@@ -15,6 +15,7 @@ import motor
 
 car = motor.car()
 dev = InputDevice('/dev/input/event0')
+lock = 1
 
 while True:
     r,w,x = select([dev], [], [])
@@ -22,7 +23,7 @@ while True:
         incode = event.code
         inval  = event.value
         print('==============')
-        print(event)
+        #print(event)
         # tpye int3
         if incode==0:
             print('LT')
@@ -64,7 +65,9 @@ while True:
             car.STOP()
         elif incode==315:
             print('START')
-            car.GPIO_INIT()
+            if lock==1:
+                car.GPIO_INIT()
+                lock=0
         elif incode==316:
             print('HOME')
         elif incode==310:
@@ -83,5 +86,5 @@ while True:
         print(inval)
         if inval==0:
             pass
-            #car.STOP()
+            car.STOP()
         break
