@@ -4,18 +4,18 @@ import RPi.GPIO as GPIO
 import time
 import sys
 
-RA1 = 22
+RA1 = 17
 RA2 = 27
-RB1 = 24
-RB2 = 23
+RB1 = 23
+RB2 = 24
 LA1 = 6
-LA2 = 5
-LB1 = 21
+LA2 = 13
+LB1 = 12
 LB2 = 20
-PWMRA = 17
+PWMRA = 22
 PWMRB = 18
-PWMLA = 13
-PWMLB = 12
+PWMLA = 5
+PWMLB = 21
 PWM = int(sys.argv[1])
 delay = int(sys.argv[2])
 
@@ -42,10 +42,10 @@ LA.start(PWM)
 LB = GPIO.PWM(PWMLB,200)
 LB.start(PWM)
 
-GPIO.output(RA2,GPIO.HIGH)
-GPIO.output(RA1,GPIO.LOW)
-GPIO.output(RB2,GPIO.HIGH)
-GPIO.output(RB1,GPIO.LOW)
+GPIO.output(RA1,GPIO.HIGH)
+GPIO.output(RA2,GPIO.LOW)
+GPIO.output(RB1,GPIO.HIGH)
+GPIO.output(RB2,GPIO.LOW)
 GPIO.output(LA1,GPIO.HIGH)
 GPIO.output(LA2,GPIO.LOW)
 GPIO.output(LB1,GPIO.HIGH)
