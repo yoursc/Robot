@@ -1,8 +1,8 @@
 #ifndef __LED_H
 #define __LED_H
 #include "sys.h"
-//LED ¶Ë¿Ú¶¨Òå
+//LED ç«¯å£å®šä¹‰
 #define LED PAout(4) // PA4
-void LED_Init(void);  //³õÊ¼»¯
+void LED_Init(void);  //åˆå§‹åŒ–
 void Led_Flash(u16 time);
 #endif

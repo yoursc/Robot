@@ -374,7 +374,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\SYSTEM\sys;..\USER;..\CORE;..\HARDWARE\inc;..\BALANCE\CONTROL;..\BALANCE\CONTROL;..\BALANCE\show;..\BALANCE\controls</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\HARDWARE\inc;..\BALANCE\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -501,12 +501,12 @@
             <File>
               <FileName>control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\BALANCE\CONTROL\control.c</FilePath>
+              <FilePath>..\BALANCE\src\control.c</FilePath>
             </File>
             <File>
               <FileName>show.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\BALANCE\show\show.c</FilePath>
+              <FilePath>..\BALANCE\src\show.c</FilePath>
             </File>
           </Files>
         </Group>

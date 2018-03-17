@@ -1,8 +1,8 @@
 #include "usart.h"	  
-//¼ÓÈëÒÔÏÂ´úÂë,Ö§³Öprintfº¯Êı,¶ø²»ĞèÒªÑ¡Ôñuse MicroLIB	  
+//åŠ å…¥ä»¥ä¸‹ä»£ç ,æ”¯æŒprintfå‡½æ•°,è€Œä¸éœ€è¦é€‰æ‹©use MicroLIB	  
 #if 1
 #pragma import(__use_no_semihosting)             
-//±ê×¼¿âĞèÒªµÄÖ§³Öº¯Êı                 
+//æ ‡å‡†åº“éœ€è¦çš„æ”¯æŒå‡½æ•°                 
 struct __FILE 
 { 
 	int handle; 
@@ -10,25 +10,25 @@ struct __FILE
 	/* standard output using printf() for debugging, no file handling */ 
 	/* is required. */ 
 }; 
-/* FILE is typedef¡¯ d in stdio.h. */ 
+/* FILE is typedefâ€™ d in stdio.h. */ 
 FILE __stdout;       
-//¶¨Òå_sys_exit()ÒÔ±ÜÃâÊ¹ÓÃ°ëÖ÷»úÄ£Ê½    
+//å®šä¹‰_sys_exit()ä»¥é¿å…ä½¿ç”¨åŠä¸»æœºæ¨¡å¼    
 _sys_exit(int x) 
 { 
 	x = x; 
 } 
-//ÖØ¶¨Òåfputcº¯Êı 
+//é‡å®šä¹‰fputcå‡½æ•° 
 int fputc(int ch, FILE *f)
 { 
-	while((USART1->SR&0X40)==0);//Flag_Show!=0  Ê¹ÓÃ´®¿Ú1   
+	while((USART1->SR&0X40)==0);//Flag_Show!=0  ä½¿ç”¨ä¸²å£1   
 	USART1->DR = (u8) ch;    
 	return ch;
 }
 #endif 
 //end
 //////////////////////////////////////////////////////////////////
-/**************************ÊµÏÖº¯Êı**********************************************
-*¹¦    ÄÜ:		usart1·¢ËÍÒ»¸ö×Ö½Ú
+/**************************å®ç°å‡½æ•°**********************************************
+*åŠŸ    èƒ½:		usart1å‘é€ä¸€ä¸ªå­—èŠ‚
 *********************************************************************************/
 void usart1_send(u8 data)
 {
@@ -40,33 +40,33 @@ void uart_init(u32 pclk2,u32 bound)
 	float temp;
 	u16 mantissa;
 	u16 fraction;	   
-	temp=(float)(pclk2*1000000)/(bound*16);//µÃµ½USARTDIV
-	mantissa=temp;				 //µÃµ½ÕûÊı²¿·Ö
-	fraction=(temp-mantissa)*16; //µÃµ½Ğ¡Êı²¿·Ö	 
+	temp=(float)(pclk2*1000000)/(bound*16);//å¾—åˆ°USARTDIV
+	mantissa=temp;				 //å¾—åˆ°æ•´æ•°éƒ¨åˆ†
+	fraction=(temp-mantissa)*16; //å¾—åˆ°å°æ•°éƒ¨åˆ†	 
     mantissa<<=4;
 	mantissa+=fraction; 
-	RCC->APB2ENR|=1<<2;   //Ê¹ÄÜPORTA¿ÚÊ±ÖÓ  
-	RCC->APB2ENR|=1<<14;  //Ê¹ÄÜ´®¿ÚÊ±ÖÓ 
-	GPIOA->CRH&=0XFFFFF00F;//IO×´Ì¬ÉèÖÃ
-	GPIOA->CRH|=0X000008B0;//IO×´Ì¬ÉèÖÃ
+	RCC->APB2ENR|=1<<2;   //ä½¿èƒ½PORTAå£æ—¶é’Ÿ  
+	RCC->APB2ENR|=1<<14;  //ä½¿èƒ½ä¸²å£æ—¶é’Ÿ 
+	GPIOA->CRH&=0XFFFFF00F;//IOçŠ¶æ€è®¾ç½®
+	GPIOA->CRH|=0X000008B0;//IOçŠ¶æ€è®¾ç½®
 		  
-	RCC->APB2RSTR|=1<<14;   //¸´Î»´®¿Ú1
-	RCC->APB2RSTR&=~(1<<14);//Í£Ö¹¸´Î»	   	   
-	//²¨ÌØÂÊÉèÖÃ
- 	USART1->BRR=mantissa; // ²¨ÌØÂÊÉèÖÃ	 
-	USART1->CR1|=0X200C;  //1Î»Í£Ö¹,ÎŞĞ£ÑéÎ».
-	USART1->CR1|=1<<8;    //PEÖĞ¶ÏÊ¹ÄÜ
-	USART1->CR1|=1<<5;    //½ÓÊÕ»º³åÇø·Ç¿ÕÖĞ¶ÏÊ¹ÄÜ	    	
-	MY_NVIC_Init(0,1,USART1_IRQn,2);//×é2£¬×îµÍÓÅÏÈ¼¶ 
+	RCC->APB2RSTR|=1<<14;   //å¤ä½ä¸²å£1
+	RCC->APB2RSTR&=~(1<<14);//åœæ­¢å¤ä½	   	   
+	//æ³¢ç‰¹ç‡è®¾ç½®
+ 	USART1->BRR=mantissa; // æ³¢ç‰¹ç‡è®¾ç½®	 
+	USART1->CR1|=0X200C;  //1ä½åœæ­¢,æ— æ ¡éªŒä½.
+	USART1->CR1|=1<<8;    //PEä¸­æ–­ä½¿èƒ½
+	USART1->CR1|=1<<5;    //æ¥æ”¶ç¼“å†²åŒºéç©ºä¸­æ–­ä½¿èƒ½	    	
+	MY_NVIC_Init(0,1,USART1_IRQn,2);//ç»„2ï¼Œæœ€ä½ä¼˜å…ˆçº§ 
 }
 /**************************************************************************
-º¯Êı¹¦ÄÜ£º´®¿Ú1½ÓÊÕÖĞ¶Ï
-Èë¿Ú²ÎÊı£ºÎŞ
-·µ»Ø  Öµ£ºÎŞ
+å‡½æ•°åŠŸèƒ½ï¼šä¸²å£1æ¥æ”¶ä¸­æ–­
+å…¥å£å‚æ•°ï¼šæ— 
+è¿”å›  å€¼ï¼šæ— 
 **************************************************************************/
 int USART1_IRQHandler(void)
 {	
-	if(USART1->SR&(1<<5))//½ÓÊÕµ½Êı¾İ
+	if(USART1->SR&(1<<5))//æ¥æ”¶åˆ°æ•°æ®
 	{	      
 				u8 temp;
 				static u8 count,last_data,last_last_data;

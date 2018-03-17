@@ -1,8 +1,8 @@
 #ifndef __FILTER_H
 #define __FILTER_H
   /**************************************************************************
-作者：平衡小车之家
-我的淘宝小店：http://shop114407458.taobao.com/
+浣滆�咃細骞宠　灏忚溅涔嬪
+鎴戠殑娣樺疂灏忓簵锛歨ttp://shop114407458.taobao.com/
 **************************************************************************/
 extern float angle, angle_dot; 	
 void Kalman_Filter(float Accel,float Gyro);		

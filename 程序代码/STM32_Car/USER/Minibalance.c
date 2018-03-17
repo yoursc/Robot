@@ -1,38 +1,38 @@
 #include "sys.h"
 /**************************************************************************
-×÷Õß£º²ÜÅæÎÄ
-²Î¿¼£ºÆ½ºâĞ¡³µÖ®¼Ò
+ä½œè€…ï¼šæ›¹æ²›æ–‡
+å‚è€ƒï¼šå¹³è¡¡å°è½¦ä¹‹å®¶
 **************************************************************************/
 
-u8 Flag_Way=0,Flag_Show=0,Flag_Stop=1;  //Í£Ö¹±êÖ¾Î»ºÍ ÏÔÊ¾±êÖ¾Î» Ä¬ÈÏÍ£Ö¹ ÏÔÊ¾´ò¿ª
-int Encoder_Left,Encoder_Right;         //×óÓÒ±àÂëÆ÷µÄÂö³å¼ÆÊı
+u8 Flag_Way=0,Flag_Show=0,Flag_Stop=1;  //åœæ­¢æ ‡å¿—ä½å’Œ æ˜¾ç¤ºæ ‡å¿—ä½ é»˜è®¤åœæ­¢ æ˜¾ç¤ºæ‰“å¼€
+int Encoder_Left,Encoder_Right;         //å·¦å³ç¼–ç å™¨çš„è„‰å†²è®¡æ•°
 float Velocity,Velocity_Set,Turn,Angle_Set;
-int Motor_A,Motor_B,Target_A,Target_B;  //µç»ú¶æ»ú¿ØÖÆÏà¹Ø           
-int Voltage;                            //µç³ØµçÑ¹²ÉÑùÏà¹ØµÄ±äÁ¿
-float Velocity_KP=62,Velocity_KI=62;	  //ËÙ¶È¿ØÖÆPID²ÎÊı
+int Motor_A,Motor_B,Target_A,Target_B;  //ç”µæœºèˆµæœºæ§åˆ¶ç›¸å…³           
+int Voltage;                            //ç”µæ± ç”µå‹é‡‡æ ·ç›¸å…³çš„å˜é‡
+float Velocity_KP=62,Velocity_KI=62;	  //é€Ÿåº¦æ§åˆ¶PIDå‚æ•°
 u8 Urxbuf[4],rxbuf[4],Usart_Flag;
 int main(void)
 { 
 	int ua_Encoder,ub_Encoder;
-	Stm32_Clock_Init(9);            //=====ÏµÍ³Ê±ÖÓÉèÖÃ
-	delay_init(72);                 //=====ÑÓÊ±³õÊ¼»¯
-	JTAG_Set(JTAG_SWD_DISABLE);     //=====¹Ø±ÕJTAG½Ó¿Ú
-	LED_Init();                     //=====³õÊ¼»¯Óë LED Á¬½ÓµÄÓ²¼ş½Ó¿Ú
-	KEY_Init();                     //=====°´¼ü³õÊ¼»¯
-	OLED_Init();                    //=====OLED³õÊ¼»¯
-	Encoder_Init_TIM2();            //=====±àÂëÆ÷½Ó¿Ú
-	Encoder_Init_TIM3();            //=====³õÊ¼»¯±àÂëÆ÷ 
-	delay_ms(300);                  //=====ÑÓÊ±Æô¶¯
-	uart_init(72,115200);           //=====³õÊ¼»¯´®¿Ú1
-  Motor_PWM_Init(7199,0);  				//=====³õÊ¼»¯PWM 10KHZ£¬ÓÃÓÚÇı¶¯µç»ú 
-	Adc_Init();                     //=====µç³ØµçÑ¹²ÉÑùadc³õÊ¼»¯
-	uart2_init(36,115200); 				  //=====´®¿Ú3³õÊ¼»¯ À¶ÑÀ
-	Timer_Init(49,7199);            //=====¶¨Ê±ÖĞ¶Ï³õÊ¼»¯ 
+	Stm32_Clock_Init(9);            //=====ç³»ç»Ÿæ—¶é’Ÿè®¾ç½®
+	delay_init(72);                 //=====å»¶æ—¶åˆå§‹åŒ–
+	JTAG_Set(JTAG_SWD_DISABLE);     //=====å…³é—­JTAGæ¥å£
+	LED_Init();                     //=====åˆå§‹åŒ–ä¸ LED è¿æ¥çš„ç¡¬ä»¶æ¥å£
+	KEY_Init();                     //=====æŒ‰é”®åˆå§‹åŒ–
+	OLED_Init();                    //=====OLEDåˆå§‹åŒ–
+	Encoder_Init_TIM2();            //=====ç¼–ç å™¨æ¥å£
+	Encoder_Init_TIM3();            //=====åˆå§‹åŒ–ç¼–ç å™¨ 
+	delay_ms(300);                  //=====å»¶æ—¶å¯åŠ¨
+	uart_init(72,115200);           //=====åˆå§‹åŒ–ä¸²å£1
+  Motor_PWM_Init(7199,0);  				//=====åˆå§‹åŒ–PWM 10KHZï¼Œç”¨äºé©±åŠ¨ç”µæœº 
+	Adc_Init();                     //=====ç”µæ± ç”µå‹é‡‡æ ·adcåˆå§‹åŒ–
+	uart2_init(36,115200); 				  //=====ä¸²å£3åˆå§‹åŒ– è“ç‰™
+	Timer_Init(49,7199);            //=====å®šæ—¶ä¸­æ–­åˆå§‹åŒ– 
 	while(1)
 		{     	
-					if(Flag_Show==0)         //Ê¹ÓÃMiniBalance APPºÍOLEDÏÔÊ¾ÆÁ
+					if(Flag_Show==0)         //ä½¿ç”¨MiniBalance APPå’ŒOLEDæ˜¾ç¤ºå±
 					{	
-							oled_show();          //===ÏÔÊ¾ÆÁ´ò¿ª
+							oled_show();          //===æ˜¾ç¤ºå±æ‰“å¼€
 					}		
 				ua_Encoder=Encoder_Left+500;
 				ub_Encoder=Encoder_Right+500;

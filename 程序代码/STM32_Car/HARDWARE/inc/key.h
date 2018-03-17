@@ -2,9 +2,9 @@
 #define __KEY_H	 
 #include "sys.h"
 #define KEY PAin(5)
-void KEY_Init(void);          //°´¼ü³õÊ¼»¯
-u8 click_N_Double (u8 time);  //µ¥»÷°´¼üÉ¨ÃèºÍË«»÷°´¼üÉ¨Ãè
-u8 click(void);               //µ¥»÷°´¼üÉ¨Ãè
+void KEY_Init(void);          //æŒ‰é”®åˆå§‹åŒ–
+u8 click_N_Double (u8 time);  //å•å‡»æŒ‰é”®æ‰«æå’ŒåŒå‡»æŒ‰é”®æ‰«æ
+u8 click(void);               //å•å‡»æŒ‰é”®æ‰«æ
 u8 Long_Press(void);
 u8  select(void);
 #endif 

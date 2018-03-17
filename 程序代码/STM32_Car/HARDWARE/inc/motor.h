@@ -2,8 +2,8 @@
 #define __MOTOR_H
 #include <sys.h>	 
   /**************************************************************************
-作者：平衡小车之家
-我的淘宝小店：http://shop114407458.taobao.com/
+浣滆�咃細骞宠　灏忚溅涔嬪
+鎴戠殑娣樺疂灏忓簵锛歨ttp://shop114407458.taobao.com/
 **************************************************************************/
 #define PWMA1   TIM4->CCR1  
 #define PWMA2   TIM4->CCR2 
@@ -11,7 +11,7 @@
 #define PWMB1   TIM4->CCR3  
 #define PWMB2   TIM4->CCR4
 
-#define SERVO   TIM1->CCR4  //舵机引脚
+#define SERVO   TIM1->CCR4  //鑸垫満寮曡剼
 
 void Motor_PWM_Init(u16 arr,u16 psc);
 void Servo_PWM_Init(u16 arr,u16 psc);
