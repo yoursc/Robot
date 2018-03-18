@@ -1,0 +1,31 @@
+使用如下命令查看串口信息：
+ls -l /dev/ttyUSB*
+结果如下
+crw-rw---- 1 root dialout
+
+普通用户没有任何操作权限
+我们想在ROS程序里面打开串口，就得首先放开串口对普通用户的权限。
+##################
+方法一：
+为了使普通用户也能正常使用USB转串口设备, 可以通过增加udev规则来实现：
+
+创建文件/etc/udev/rules.d/70-ttyusb.rules命令如下
+sudo gedit /etc/udev/rules.d/70-ttyusb.rules
+文件内容为：
+KERNEL=="ttyUSB[0-9]*", MODE="0666"
+增加访问权限命令：
+sudo chmod 666 /dev/ttyUSB0
+重新插入USB转串口设备，普通用户就有权限访问了。
+###################
+方法二：
+输入以下命令即可
+sudo chmod o+rw /dev/ttyUSB0
+(该方法不能给用户永久访问权限，一次性的，下次拔插串口线或者开关机就无效了)
+###################
+方法三:
+ls -l /dev/ttyUSB*
+crw-rw---- 1 root dialout 166, 0  5月 24 17:17 /dev/ttyUSB0
+可以看到所有者是root，而所属组为dialout,
+把我们的登陆用户加入此用户组：
+whoami(查看我们的用户名)
+sudo usermod -aG dialout yours (yours是我的用户名，根据上一条命令的返回值来写)
