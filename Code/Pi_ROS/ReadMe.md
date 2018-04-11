@@ -8,3 +8,6 @@
 		pyserial python串口库
 	设置静态IP（有线网络）
 	使用ROS官方源安装完整的ROS
+	下载使用到的ROS源码包
+		usb_cam
+		rosserial	git clone https://github.com/ros-drivers/rosserial.git
