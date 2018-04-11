@@ -1,4 +1,4 @@
 *.STL
-程序代码/STM32_Car/OUTPUT/
-程序代码/STM32_Car/USER/Minibalance.uvgui.YOURS
-程序代码/STM32_Car/USER/Minibalance.uvopt
+Code/STM32_Car/OUTPUT/
+Code/STM32_Car/USER/Minibalance.uvopt
+Code/STM32_Car/USER/Minibalance.uvgui.YOURS
