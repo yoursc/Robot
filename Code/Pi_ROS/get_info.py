@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
 # 作者：曹沛文
@@ -9,11 +9,15 @@ import serial
 ser=serial.Serial("/dev/ttyUSB0",115200,timeout=1)
 print("TTY is already")
 
+data = ''
+data = data.encode('utf-8')
+flag = b'\xff'
+
 while True:
-    while True :
-        s=b'\xff'
-        get = ser.read(1)
-        s = s + get
-        if get==b'\xff' :
-            break
-    print(ser.read(8))
+    temp = ser.read(1)
+    if temp == flag:
+        print(data)
+        data = ''
+        data = data.encode('utf-8')
+    data = data + temp
+
