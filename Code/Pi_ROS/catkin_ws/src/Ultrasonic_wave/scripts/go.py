@@ -12,9 +12,9 @@ from  ultrasound_wave.msg import Distance
 # 变量设置
 VG = 16 #前进速度
 VT = 8  #转向速度
-F_Stop = 5  # cm 前方停车阈值
+F_Stop = 10 # cm 前方停车阈值
 S_Stop = 8  # cm 侧方停车阈值
-F_Slow = 30 # cm 前方减速阈值
+F_Slow = 50 # cm 前方减速阈值
 S_Slow = 30 # cm 侧方加速阈值
 
 def tranhex(num):
@@ -24,28 +24,34 @@ def tranhex(num):
         a = '0' + a
         return a
 def callback(data):
-    #rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.front)
-    #rospy.loginfo('Left:%3s cm   Front:%3s cm   Right:%3s cm',data.left,data.front,data.right)
     V = VG
     TL,TR,T = 0,0,0
-    if data.front<=F_Stop:
+    data_f = data.front
+    data_l = data.left
+    data_r = data.right
+    # 前向处理
+    if data_f<=F_Stop:
         V = 0
-    elif data.front<=F_Slow:
-        V = V * (data.front - F_Stop)/(F_Slow - F_Stop)
-
-    if data.left<=S_Stop:
-         TL = VT
-    elif data.front<=S_Slow:
-        TL = VT * (S_Slow - data.left)/(S_Slow - S_Stop)
-
-    if data.right<=S_Stop:
-         TR = VT
-    elif data.right<=S_Slow:
-        TR = VT * (S_Slow - data.right)/(S_Slow - S_Stop)
+    elif data_f<=F_Slow:
+        V = V * (data_f - F_Stop)/float(F_Slow - F_Stop)
+    # 左向处理
+    if data_l<=S_Stop:
+        TL = VT
+    elif data_l<=S_Slow:
+        TL = VT * (S_Slow - data_l)/float(S_Slow - S_Stop)
+    # 右向处理
+    if data_r<=S_Stop:
+        TR = VT
+    elif data_r<=S_Slow:
+        TR = VT * (S_Slow - data_r)/float(S_Slow - S_Stop)
+    # 汇总处理
     T = TL - TR
-    VL = VG - T
-    VR = VG + T
-    rospy.loginfo("VL:%3s  VR:%3s ",VL,VR)
+    VL = int(V - T)
+    VR = int(V + T)
+    # 显示计算后原始信息
+    #rospy.loginfo("V:%2s  T:%2s  VL:%2.3f  VR:%2.3f ",V,T,TL,TR)
+    # 显示两电机设定值
+    rospy.loginfo("VL:%2s  VR:%2s",VL,VR)
 
 def listener():
     rospy.init_node('listener', anonymous=True)
