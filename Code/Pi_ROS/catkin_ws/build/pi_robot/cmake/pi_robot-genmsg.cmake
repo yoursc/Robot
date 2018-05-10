@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "pi_robot: 1 messages, 0 services")
+message(STATUS "pi_robot: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pi_robot" "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" ""
 )
 
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
+add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pi_robot" "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +35,12 @@ add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/pi_robot
+)
+_generate_msg_cpp(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/pi_robot
@@ -51,6 +62,8 @@ add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_cpp _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_cpp _pi_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(pi_robot_gencpp)
@@ -63,6 +76,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pi_robot_generate_messages_cpp)
 ### Generating Messages
 _generate_msg_eus(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/pi_robot
+)
+_generate_msg_eus(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/pi_robot
@@ -84,6 +103,8 @@ add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_eus _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_eus _pi_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(pi_robot_geneus)
@@ -96,6 +117,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pi_robot_generate_messages_eus)
 ### Generating Messages
 _generate_msg_lisp(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/pi_robot
+)
+_generate_msg_lisp(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/pi_robot
@@ -117,6 +144,8 @@ add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_lisp _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_lisp _pi_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(pi_robot_genlisp)
@@ -129,6 +158,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pi_robot_generate_messages_lisp)
 ### Generating Messages
 _generate_msg_nodejs(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/pi_robot
+)
+_generate_msg_nodejs(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/pi_robot
@@ -150,6 +185,8 @@ add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_nodejs)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_nodejs _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_nodejs _pi_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(pi_robot_gennodejs)
@@ -162,6 +199,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pi_robot_generate_messages_nodejs)
 ### Generating Messages
 _generate_msg_py(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/pi_robot
+)
+_generate_msg_py(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/pi_robot
@@ -182,6 +225,8 @@ add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_py _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_py _pi_robot_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

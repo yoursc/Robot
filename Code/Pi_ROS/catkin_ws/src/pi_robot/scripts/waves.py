@@ -25,7 +25,7 @@ Fre_Scan = 10    # Hz  扫描频率
 
 def distance():
     pub = rospy.Publisher('distance', Distance, queue_size=10)
-    rospy.init_node('waves', anonymous=True)
+    rospy.init_node('waves')#, anonymous=True)
     rate = rospy.Rate(Fre_Scan)
     # 初始化IO口
     GPIO.setmode(GPIO.BCM)

@@ -3,5 +3,7 @@
   (:export
    "<DISTANCE>"
    "DISTANCE"
+   "<SPEED>"
+   "SPEED"
   ))
 

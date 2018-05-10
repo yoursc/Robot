@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
 include pi_robot/CMakeFiles/pi_robot_generate_messages_py.dir/progress.make
 
 pi_robot/CMakeFiles/pi_robot_generate_messages_py: /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/_Distance.py
+pi_robot/CMakeFiles/pi_robot_generate_messages_py: /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/_Speed.py
 pi_robot/CMakeFiles/pi_robot_generate_messages_py: /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/__init__.py
 
 
@@ -62,13 +63,20 @@ pi_robot/CMakeFiles/pi_robot_generate_messages_py: /home/pi/catkin_ws/devel/lib/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG pi_robot/Distance"
 	cd /home/pi/catkin_ws/build/pi_robot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/pi/catkin_ws/src/pi_robot/msg/Distance.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg
 
+/home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/_Speed.py: /opt/ros/lunar/lib/genpy/genmsg_py.py
+/home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/_Speed.py: /home/pi/catkin_ws/src/pi_robot/msg/Speed.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG pi_robot/Speed"
+	cd /home/pi/catkin_ws/build/pi_robot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/pi/catkin_ws/src/pi_robot/msg/Speed.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg
+
 /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/__init__.py: /opt/ros/lunar/lib/genpy/genmsg_py.py
 /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/__init__.py: /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/_Distance.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for pi_robot"
+/home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/__init__.py: /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/_Speed.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for pi_robot"
 	cd /home/pi/catkin_ws/build/pi_robot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg --initpy
 
 pi_robot_generate_messages_py: pi_robot/CMakeFiles/pi_robot_generate_messages_py
 pi_robot_generate_messages_py: /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/_Distance.py
+pi_robot_generate_messages_py: /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/_Speed.py
 pi_robot_generate_messages_py: /home/pi/catkin_ws/devel/lib/python2.7/dist-packages/pi_robot/msg/__init__.py
 pi_robot_generate_messages_py: pi_robot/CMakeFiles/pi_robot_generate_messages_py.dir/build.make
 

@@ -7,7 +7,8 @@
 
 import rospy
 import serial
-from  ultrasound_wave.msg import Distance
+from pi_robot.msg import Distance
+from pi_robot.msg import Speed
 
 # 变量设置
 VG = 16     # 前进速度
@@ -17,9 +18,13 @@ S_Stop = 8  # cm 侧方停车阈值
 F_Slow = 20 # cm 前方减速阈值
 S_Slow = 15 # cm 侧方加速阈值
 
+VL_OLD,VR_OLD= 0,0
+
 def hexs(num):
     a = hex(abs(num))
     # 转换为hex值
+    # 输入绝对值范围：0-255
+    # 输出：00-ff
     if len(a)==4:
         b = a[2]+ a[3]
     else:
@@ -37,6 +42,7 @@ def ctrl(wheel_l,wheel_r):
     ser.write(data)
 
 def callback(data):
+    global VL_OLD,VR_OLD
     V = VG
     TL,TR,T = 0,0,0
     data_f = data.front
@@ -61,11 +67,20 @@ def callback(data):
     T = TR - TL
     VL = int(V - T)
     VR = int(V + T)
-    ctrl(VL,VR)
-    # 显示计算后原始信息
-    #rospy.loginfo("V:%2s  T:%2s  VL:%2.3f  VR:%2.3f ",V,T,TL,TR)
-    # 显示两电机设定值
-    rospy.loginfo("VL:%2s  VR:%2s",VL,VR)
+    if (VL != VL_OLD)or(VR != VR_OLD):
+        motor_speed = Speed()
+        motor_speed.left  = VL
+        motor_speed.right = VR
+        VL_OLD = VL
+        VR_OLD = VR
+        # 输出
+        pub.publish(motor_speed)
+        ctrl(VL,VR)
+        # 显示计算后原始信息
+
+        #rospy.loginfo("V:%2s  T:%2s  VL:%2.3f  VR:%2.3f ",V,T,TL,TR)
+        # 显示两电机设定值
+        rospy.loginfo("VL:%2s  VR:%2s",VL,VR)
 
 def listener():
     rospy.init_node('speed_nav', anonymous=True)
@@ -75,5 +90,6 @@ def listener():
 
 if __name__ == '__main__':
     ser = serial.Serial("/dev/ttyUSB0",115200,timeout=1)
+    pub = rospy.Publisher('speed', Speed, queue_size=10)
     listener()
 

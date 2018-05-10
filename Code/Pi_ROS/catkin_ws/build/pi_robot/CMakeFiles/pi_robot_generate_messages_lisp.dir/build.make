@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
 include pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/progress.make
 
 pi_robot/CMakeFiles/pi_robot_generate_messages_lisp: /home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Distance.lisp
+pi_robot/CMakeFiles/pi_robot_generate_messages_lisp: /home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Speed.lisp
 
 
 /home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Distance.lisp: /opt/ros/lunar/lib/genlisp/gen_lisp.py
@@ -61,8 +62,14 @@ pi_robot/CMakeFiles/pi_robot_generate_messages_lisp: /home/pi/catkin_ws/devel/sh
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from pi_robot/Distance.msg"
 	cd /home/pi/catkin_ws/build/pi_robot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/catkin_ws/src/pi_robot/msg/Distance.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg
 
+/home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Speed.lisp: /opt/ros/lunar/lib/genlisp/gen_lisp.py
+/home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Speed.lisp: /home/pi/catkin_ws/src/pi_robot/msg/Speed.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from pi_robot/Speed.msg"
+	cd /home/pi/catkin_ws/build/pi_robot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/catkin_ws/src/pi_robot/msg/Speed.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg
+
 pi_robot_generate_messages_lisp: pi_robot/CMakeFiles/pi_robot_generate_messages_lisp
 pi_robot_generate_messages_lisp: /home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Distance.lisp
+pi_robot_generate_messages_lisp: /home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Speed.lisp
 pi_robot_generate_messages_lisp: pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build.make
 
 .PHONY : pi_robot_generate_messages_lisp

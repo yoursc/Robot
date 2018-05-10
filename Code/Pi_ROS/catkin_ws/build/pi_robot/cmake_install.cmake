@@ -33,7 +33,10 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pi_robot/msg" TYPE FILE FILES "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pi_robot/msg" TYPE FILE FILES
+    "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+    "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
+    )
 endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)

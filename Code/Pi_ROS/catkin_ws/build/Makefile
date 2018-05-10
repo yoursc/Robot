@@ -322,6 +322,19 @@ pi_robot_genlisp/fast:
 .PHONY : pi_robot_genlisp/fast
 
 #=============================================================================
+# Target rules for targets named pi_robot_generate_messages_lisp
+
+# Build rule for target.
+pi_robot_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pi_robot_generate_messages_lisp
+.PHONY : pi_robot_generate_messages_lisp
+
+# fast build rule for target.
+pi_robot_generate_messages_lisp/fast:
+	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build
+.PHONY : pi_robot_generate_messages_lisp/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -582,6 +595,32 @@ _pi_robot_generate_messages_check_deps_Distance/fast:
 .PHONY : _pi_robot_generate_messages_check_deps_Distance/fast
 
 #=============================================================================
+# Target rules for targets named _pi_robot_generate_messages_check_deps_Speed
+
+# Build rule for target.
+_pi_robot_generate_messages_check_deps_Speed: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _pi_robot_generate_messages_check_deps_Speed
+.PHONY : _pi_robot_generate_messages_check_deps_Speed
+
+# fast build rule for target.
+_pi_robot_generate_messages_check_deps_Speed/fast:
+	$(MAKE) -f pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Speed.dir/build.make pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Speed.dir/build
+.PHONY : _pi_robot_generate_messages_check_deps_Speed/fast
+
+#=============================================================================
+# Target rules for targets named pi_robot_generate_messages_eus
+
+# Build rule for target.
+pi_robot_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pi_robot_generate_messages_eus
+.PHONY : pi_robot_generate_messages_eus
+
+# fast build rule for target.
+pi_robot_generate_messages_eus/fast:
+	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build
+.PHONY : pi_robot_generate_messages_eus/fast
+
+#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -606,32 +645,6 @@ pi_robot_generate_messages_cpp: cmake_check_build_system
 pi_robot_generate_messages_cpp/fast:
 	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_cpp.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_cpp.dir/build
 .PHONY : pi_robot_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named pi_robot_generate_messages_eus
-
-# Build rule for target.
-pi_robot_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pi_robot_generate_messages_eus
-.PHONY : pi_robot_generate_messages_eus
-
-# fast build rule for target.
-pi_robot_generate_messages_eus/fast:
-	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build
-.PHONY : pi_robot_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named pi_robot_generate_messages_lisp
-
-# Build rule for target.
-pi_robot_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pi_robot_generate_messages_lisp
-.PHONY : pi_robot_generate_messages_lisp
-
-# fast build rule for target.
-pi_robot_generate_messages_lisp/fast:
-	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build
-.PHONY : pi_robot_generate_messages_lisp/fast
 
 # Help Target
 help:
@@ -658,6 +671,7 @@ help:
 	@echo "... pi_robot_genpy"
 	@echo "... pi_robot_generate_messages_nodejs"
 	@echo "... pi_robot_genlisp"
+	@echo "... pi_robot_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_py"
@@ -678,10 +692,10 @@ help:
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... _pi_robot_generate_messages_check_deps_Distance"
+	@echo "... _pi_robot_generate_messages_check_deps_Speed"
+	@echo "... pi_robot_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... pi_robot_generate_messages_cpp"
-	@echo "... pi_robot_generate_messages_eus"
-	@echo "... pi_robot_generate_messages_lisp"
 .PHONY : help
 
 

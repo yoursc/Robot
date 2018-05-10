@@ -211,6 +211,21 @@ pi_robot_genlisp/fast:
 .PHONY : pi_robot_genlisp/fast
 
 # Convenience name for target.
+pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/rule:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/rule
+.PHONY : pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+pi_robot_generate_messages_lisp: pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/rule
+
+.PHONY : pi_robot_generate_messages_lisp
+
+# fast build rule for target.
+pi_robot_generate_messages_lisp/fast:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build
+.PHONY : pi_robot_generate_messages_lisp/fast
+
+# Convenience name for target.
 pi_robot/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
 	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 .PHONY : pi_robot/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
@@ -511,6 +526,36 @@ _pi_robot_generate_messages_check_deps_Distance/fast:
 .PHONY : _pi_robot_generate_messages_check_deps_Distance/fast
 
 # Convenience name for target.
+pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Speed.dir/rule:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Speed.dir/rule
+.PHONY : pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Speed.dir/rule
+
+# Convenience name for target.
+_pi_robot_generate_messages_check_deps_Speed: pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Speed.dir/rule
+
+.PHONY : _pi_robot_generate_messages_check_deps_Speed
+
+# fast build rule for target.
+_pi_robot_generate_messages_check_deps_Speed/fast:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Speed.dir/build.make pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Speed.dir/build
+.PHONY : _pi_robot_generate_messages_check_deps_Speed/fast
+
+# Convenience name for target.
+pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
+.PHONY : pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+pi_robot_generate_messages_eus: pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
+
+.PHONY : pi_robot_generate_messages_eus
+
+# fast build rule for target.
+pi_robot_generate_messages_eus/fast:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build
+.PHONY : pi_robot_generate_messages_eus/fast
+
+# Convenience name for target.
 pi_robot/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
 	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : pi_robot/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
@@ -540,36 +585,6 @@ pi_robot_generate_messages_cpp/fast:
 	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_cpp.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_cpp.dir/build
 .PHONY : pi_robot_generate_messages_cpp/fast
 
-# Convenience name for target.
-pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule:
-	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
-.PHONY : pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-pi_robot_generate_messages_eus: pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
-
-.PHONY : pi_robot_generate_messages_eus
-
-# fast build rule for target.
-pi_robot_generate_messages_eus/fast:
-	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build
-.PHONY : pi_robot_generate_messages_eus/fast
-
-# Convenience name for target.
-pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/rule:
-	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/rule
-.PHONY : pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-pi_robot_generate_messages_lisp: pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/rule
-
-.PHONY : pi_robot_generate_messages_lisp
-
-# fast build rule for target.
-pi_robot_generate_messages_lisp/fast:
-	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_lisp.dir/build
-.PHONY : pi_robot_generate_messages_lisp/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -584,6 +599,7 @@ help:
 	@echo "... install/local"
 	@echo "... pi_robot_generate_messages_nodejs"
 	@echo "... pi_robot_genlisp"
+	@echo "... pi_robot_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... install/strip"
@@ -606,10 +622,10 @@ help:
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... _pi_robot_generate_messages_check_deps_Distance"
+	@echo "... _pi_robot_generate_messages_check_deps_Speed"
+	@echo "... pi_robot_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... pi_robot_generate_messages_cpp"
-	@echo "... pi_robot_generate_messages_eus"
-	@echo "... pi_robot_generate_messages_lisp"
 .PHONY : help
 
 
