@@ -3,12 +3,14 @@
 
 # 超声波避障程序
 # 从超声波订阅中获取障碍物距离
-# 计算生成左右轮转速控制信号，直接从串口发送
+# 计算生成左右轮转速控制信号发布在 speed 订阅
+# 生成串口控制字节并发布 serial_send 订阅
 
 import rospy
 import serial
 from pi_robot.msg import Distance
 from pi_robot.msg import Speed
+from pi_robot.msg import Serial_Send
 
 # 变量设置
 VG = 16     # 前进速度
@@ -18,6 +20,7 @@ S_Stop = 8  # cm 侧方停车阈值
 F_Slow = 20 # cm 前方减速阈值
 S_Slow = 15 # cm 侧方加速阈值
 
+#
 VL_OLD,VR_OLD= 0,0
 
 def hexs(num):
@@ -38,8 +41,10 @@ def ctrl(wheel_l,wheel_r):
     if wheel_r<0:
         RR = "00"
     data = "fffe"+hexs(wheel_l)+LL+hexs(wheel_r)+RR
-    data = data.decode("hex")
-    ser.write(data)
+    #data = data.decode("hex")
+    sendbyte = Serial_Send()
+    sendbyte = data
+    pub2.publish(sendbyte)
 
 def callback(data):
     global VL_OLD,VR_OLD
@@ -76,11 +81,7 @@ def callback(data):
         # 输出
         pub.publish(motor_speed)
         ctrl(VL,VR)
-        # 显示计算后原始信息
-
-        #rospy.loginfo("V:%2s  T:%2s  VL:%2.3f  VR:%2.3f ",V,T,TL,TR)
-        # 显示两电机设定值
-        rospy.loginfo("VL:%2s  VR:%2s",VL,VR)
+        rospy.loginfo("VL:%2s  VR:%2s  %s",VL,VR,sendbyte)
 
 def listener():
     rospy.init_node('speed_nav', anonymous=True)
@@ -91,5 +92,6 @@ def listener():
 if __name__ == '__main__':
     ser = serial.Serial("/dev/ttyUSB0",115200,timeout=1)
     pub = rospy.Publisher('speed', Speed, queue_size=10)
+    pub2= rospy.Publisher('serial_send', Serial_Send, queue_size=100)
     listener()
 

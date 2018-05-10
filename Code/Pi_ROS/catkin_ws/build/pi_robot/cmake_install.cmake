@@ -36,6 +36,7 @@ if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMP
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pi_robot/msg" TYPE FILE FILES
     "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
     "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
+    "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg"
     )
 endif()
 

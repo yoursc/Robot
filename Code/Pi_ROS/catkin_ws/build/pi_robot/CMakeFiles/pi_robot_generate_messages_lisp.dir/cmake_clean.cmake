@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/pi_robot_generate_messages_lisp"
+  "/home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Serial_Send.lisp"
   "/home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Distance.lisp"
   "/home/pi/catkin_ws/devel/share/common-lisp/ros/pi_robot/msg/Speed.lisp"
 )

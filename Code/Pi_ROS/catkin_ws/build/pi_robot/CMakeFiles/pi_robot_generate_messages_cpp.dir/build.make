@@ -53,23 +53,31 @@ CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
 # Include the progress variables for this target.
 include pi_robot/CMakeFiles/pi_robot_generate_messages_cpp.dir/progress.make
 
+pi_robot/CMakeFiles/pi_robot_generate_messages_cpp: /home/pi/catkin_ws/devel/include/pi_robot/Serial_Send.h
 pi_robot/CMakeFiles/pi_robot_generate_messages_cpp: /home/pi/catkin_ws/devel/include/pi_robot/Distance.h
 pi_robot/CMakeFiles/pi_robot_generate_messages_cpp: /home/pi/catkin_ws/devel/include/pi_robot/Speed.h
 
 
+/home/pi/catkin_ws/devel/include/pi_robot/Serial_Send.h: /opt/ros/lunar/lib/gencpp/gen_cpp.py
+/home/pi/catkin_ws/devel/include/pi_robot/Serial_Send.h: /home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg
+/home/pi/catkin_ws/devel/include/pi_robot/Serial_Send.h: /opt/ros/lunar/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from pi_robot/Serial_Send.msg"
+	cd /home/pi/catkin_ws/src/pi_robot && /home/pi/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/include/pi_robot -e /opt/ros/lunar/share/gencpp/cmake/..
+
 /home/pi/catkin_ws/devel/include/pi_robot/Distance.h: /opt/ros/lunar/lib/gencpp/gen_cpp.py
 /home/pi/catkin_ws/devel/include/pi_robot/Distance.h: /home/pi/catkin_ws/src/pi_robot/msg/Distance.msg
 /home/pi/catkin_ws/devel/include/pi_robot/Distance.h: /opt/ros/lunar/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from pi_robot/Distance.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from pi_robot/Distance.msg"
 	cd /home/pi/catkin_ws/src/pi_robot && /home/pi/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/catkin_ws/src/pi_robot/msg/Distance.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/include/pi_robot -e /opt/ros/lunar/share/gencpp/cmake/..
 
 /home/pi/catkin_ws/devel/include/pi_robot/Speed.h: /opt/ros/lunar/lib/gencpp/gen_cpp.py
 /home/pi/catkin_ws/devel/include/pi_robot/Speed.h: /home/pi/catkin_ws/src/pi_robot/msg/Speed.msg
 /home/pi/catkin_ws/devel/include/pi_robot/Speed.h: /opt/ros/lunar/share/gencpp/msg.h.template
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from pi_robot/Speed.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from pi_robot/Speed.msg"
 	cd /home/pi/catkin_ws/src/pi_robot && /home/pi/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/pi/catkin_ws/src/pi_robot/msg/Speed.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/include/pi_robot -e /opt/ros/lunar/share/gencpp/cmake/..
 
 pi_robot_generate_messages_cpp: pi_robot/CMakeFiles/pi_robot_generate_messages_cpp
+pi_robot_generate_messages_cpp: /home/pi/catkin_ws/devel/include/pi_robot/Serial_Send.h
 pi_robot_generate_messages_cpp: /home/pi/catkin_ws/devel/include/pi_robot/Distance.h
 pi_robot_generate_messages_cpp: /home/pi/catkin_ws/devel/include/pi_robot/Speed.h
 pi_robot_generate_messages_cpp: pi_robot/CMakeFiles/pi_robot_generate_messages_cpp.dir/build.make

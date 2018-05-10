@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "pi_robot: 2 messages, 0 services")
+message(STATUS "pi_robot: 3 messages, 0 services")
 
 set(MSG_I_FLAGS "-Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg")
 
@@ -16,6 +16,11 @@ add_custom_target(pi_robot_generate_messages ALL)
 # verify that message/service dependencies have not changed since configure
 
 
+
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg" NAME_WE)
+add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pi_robot" "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg" ""
+)
 
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
@@ -33,6 +38,12 @@ add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
 
 ### Section generating for lang: gencpp
 ### Generating Messages
+_generate_msg_cpp(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/pi_robot
+)
 _generate_msg_cpp(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
   "${MSG_I_FLAGS}"
@@ -60,6 +71,8 @@ add_custom_target(pi_robot_generate_messages_cpp
 add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_cpp _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_cpp _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
@@ -74,6 +87,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pi_robot_generate_messages_cpp)
 
 ### Section generating for lang: geneus
 ### Generating Messages
+_generate_msg_eus(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/pi_robot
+)
 _generate_msg_eus(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
   "${MSG_I_FLAGS}"
@@ -101,6 +120,8 @@ add_custom_target(pi_robot_generate_messages_eus
 add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_eus _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_eus _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
@@ -115,6 +136,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pi_robot_generate_messages_eus)
 
 ### Section generating for lang: genlisp
 ### Generating Messages
+_generate_msg_lisp(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/pi_robot
+)
 _generate_msg_lisp(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
   "${MSG_I_FLAGS}"
@@ -142,6 +169,8 @@ add_custom_target(pi_robot_generate_messages_lisp
 add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_lisp _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_lisp _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
@@ -156,6 +185,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pi_robot_generate_messages_lisp)
 
 ### Section generating for lang: gennodejs
 ### Generating Messages
+_generate_msg_nodejs(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/pi_robot
+)
 _generate_msg_nodejs(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
   "${MSG_I_FLAGS}"
@@ -183,6 +218,8 @@ add_custom_target(pi_robot_generate_messages_nodejs
 add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_nodejs _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_nodejs _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
@@ -197,6 +234,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS pi_robot_generate_messages_nodejs)
 
 ### Section generating for lang: genpy
 ### Generating Messages
+_generate_msg_py(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/pi_robot
+)
 _generate_msg_py(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
   "${MSG_I_FLAGS}"
@@ -224,6 +267,8 @@ add_custom_target(pi_robot_generate_messages_py
 add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_py)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_py _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_py _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)

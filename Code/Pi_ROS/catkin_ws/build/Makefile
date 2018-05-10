@@ -335,6 +335,32 @@ pi_robot_generate_messages_lisp/fast:
 .PHONY : pi_robot_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named pi_robot_gennodejs
+
+# Build rule for target.
+pi_robot_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pi_robot_gennodejs
+.PHONY : pi_robot_gennodejs
+
+# fast build rule for target.
+pi_robot_gennodejs/fast:
+	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_gennodejs.dir/build.make pi_robot/CMakeFiles/pi_robot_gennodejs.dir/build
+.PHONY : pi_robot_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named pi_robot_geneus
+
+# Build rule for target.
+pi_robot_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pi_robot_geneus
+.PHONY : pi_robot_geneus
+
+# fast build rule for target.
+pi_robot_geneus/fast:
+	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_geneus.dir/build.make pi_robot/CMakeFiles/pi_robot_geneus.dir/build
+.PHONY : pi_robot_geneus/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_lisp
 
 # Build rule for target.
@@ -426,19 +452,6 @@ roscpp_generate_messages_cpp/fast:
 .PHONY : roscpp_generate_messages_cpp/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_py
-
-# Build rule for target.
-std_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	$(MAKE) -f pi_robot/CMakeFiles/std_msgs_generate_messages_py.dir/build.make pi_robot/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -463,32 +476,6 @@ roscpp_generate_messages_lisp: cmake_check_build_system
 roscpp_generate_messages_lisp/fast:
 	$(MAKE) -f pi_robot/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make pi_robot/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named pi_robot_gennodejs
-
-# Build rule for target.
-pi_robot_gennodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pi_robot_gennodejs
-.PHONY : pi_robot_gennodejs
-
-# fast build rule for target.
-pi_robot_gennodejs/fast:
-	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_gennodejs.dir/build.make pi_robot/CMakeFiles/pi_robot_gennodejs.dir/build
-.PHONY : pi_robot_gennodejs/fast
-
-#=============================================================================
-# Target rules for targets named pi_robot_geneus
-
-# Build rule for target.
-pi_robot_geneus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pi_robot_geneus
-.PHONY : pi_robot_geneus
-
-# fast build rule for target.
-pi_robot_geneus/fast:
-	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_geneus.dir/build.make pi_robot/CMakeFiles/pi_robot_geneus.dir/build
-.PHONY : pi_robot_geneus/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_eus
@@ -554,6 +541,32 @@ pi_robot_generate_messages: cmake_check_build_system
 pi_robot_generate_messages/fast:
 	$(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages.dir/build
 .PHONY : pi_robot_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_py
+
+# Build rule for target.
+std_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	$(MAKE) -f pi_robot/CMakeFiles/std_msgs_generate_messages_py.dir/build.make pi_robot/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named _pi_robot_generate_messages_check_deps_Serial_Send
+
+# Build rule for target.
+_pi_robot_generate_messages_check_deps_Serial_Send: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _pi_robot_generate_messages_check_deps_Serial_Send
+.PHONY : _pi_robot_generate_messages_check_deps_Serial_Send
+
+# fast build rule for target.
+_pi_robot_generate_messages_check_deps_Serial_Send/fast:
+	$(MAKE) -f pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Serial_Send.dir/build.make pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_Serial_Send.dir/build
+.PHONY : _pi_robot_generate_messages_check_deps_Serial_Send/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_nodejs
@@ -672,6 +685,8 @@ help:
 	@echo "... pi_robot_generate_messages_nodejs"
 	@echo "... pi_robot_genlisp"
 	@echo "... pi_robot_generate_messages_lisp"
+	@echo "... pi_robot_gennodejs"
+	@echo "... pi_robot_geneus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_py"
@@ -679,16 +694,15 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... pi_robot_generate_messages_py"
 	@echo "... roscpp_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_lisp"
-	@echo "... pi_robot_gennodejs"
-	@echo "... pi_robot_geneus"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... pi_robot_gencpp"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... pi_robot_generate_messages"
+	@echo "... std_msgs_generate_messages_py"
+	@echo "... _pi_robot_generate_messages_check_deps_Serial_Send"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... _pi_robot_generate_messages_check_deps_Distance"

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg;/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
+messages_str = "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg;/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg;/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg"
 services_str = ""
 pkg_name = "pi_robot"
 dependencies_str = ""

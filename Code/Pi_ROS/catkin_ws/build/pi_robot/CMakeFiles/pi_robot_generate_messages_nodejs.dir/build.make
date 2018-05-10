@@ -53,21 +53,28 @@ CMAKE_BINARY_DIR = /home/pi/catkin_ws/build
 # Include the progress variables for this target.
 include pi_robot/CMakeFiles/pi_robot_generate_messages_nodejs.dir/progress.make
 
+pi_robot/CMakeFiles/pi_robot_generate_messages_nodejs: /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Serial_Send.js
 pi_robot/CMakeFiles/pi_robot_generate_messages_nodejs: /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Distance.js
 pi_robot/CMakeFiles/pi_robot_generate_messages_nodejs: /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Speed.js
 
 
+/home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Serial_Send.js: /opt/ros/lunar/lib/gennodejs/gen_nodejs.py
+/home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Serial_Send.js: /home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from pi_robot/Serial_Send.msg"
+	cd /home/pi/catkin_ws/build/pi_robot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg
+
 /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Distance.js: /opt/ros/lunar/lib/gennodejs/gen_nodejs.py
 /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Distance.js: /home/pi/catkin_ws/src/pi_robot/msg/Distance.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from pi_robot/Distance.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from pi_robot/Distance.msg"
 	cd /home/pi/catkin_ws/build/pi_robot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/catkin_ws/src/pi_robot/msg/Distance.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg
 
 /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Speed.js: /opt/ros/lunar/lib/gennodejs/gen_nodejs.py
 /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Speed.js: /home/pi/catkin_ws/src/pi_robot/msg/Speed.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from pi_robot/Speed.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from pi_robot/Speed.msg"
 	cd /home/pi/catkin_ws/build/pi_robot && ../catkin_generated/env_cached.sh /usr/bin/python /opt/ros/lunar/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/catkin_ws/src/pi_robot/msg/Speed.msg -Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg -p pi_robot -o /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg
 
 pi_robot_generate_messages_nodejs: pi_robot/CMakeFiles/pi_robot_generate_messages_nodejs
+pi_robot_generate_messages_nodejs: /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Serial_Send.js
 pi_robot_generate_messages_nodejs: /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Distance.js
 pi_robot_generate_messages_nodejs: /home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Speed.js
 pi_robot_generate_messages_nodejs: pi_robot/CMakeFiles/pi_robot_generate_messages_nodejs.dir/build.make
