@@ -7,7 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export LD_LIBRARY_PATH="/opt/ros/lunar/lib"
-export PKG_CONFIG_PATH="/opt/ros/lunar/lib/pkgconfig"
 export PWD="/home/pi/catkin_ws/build"
-export PYTHONPATH="/opt/ros/lunar/lib/python2.7/dist-packages"
