@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>ultrasound_wave</name>
+  <name>pi_robot</name>
   <version>0.0.1</version>
-  <description>The ultrasound_wave package</description>
+  <description>The pi_robot package</description>
   <license>TODO</license>
 
   <author email="peiwencao@vip.qq.com">Yours</author>

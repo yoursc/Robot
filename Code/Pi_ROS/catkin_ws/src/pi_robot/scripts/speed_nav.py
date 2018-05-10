@@ -10,12 +10,12 @@ import serial
 from  ultrasound_wave.msg import Distance
 
 # 变量设置
-VG = 24     # 前进速度
+VG = 16     # 前进速度
 VT = 16     # 转向速度
 F_Stop = 8  # cm 前方停车阈值
 S_Stop = 8  # cm 侧方停车阈值
-F_Slow = 30 # cm 前方减速阈值
-S_Slow = 20 # cm 侧方加速阈值
+F_Slow = 20 # cm 前方减速阈值
+S_Slow = 15 # cm 侧方加速阈值
 
 def hexs(num):
     a = hex(abs(num))
@@ -62,22 +62,14 @@ def callback(data):
     VL = int(V - T)
     VR = int(V + T)
     ctrl(VL,VR)
-#    LL,RR="ff","ff"
-#    if VL<0:
-#        LL = "00"
-#    if VR<0:
-#        RR = "00"
-#    outd = "fffe"+hexs(VL)+LL+hexs(VR)+RR
-#    outd = outd.decode("hex")
-#    s = ser.write(outd)
     # 显示计算后原始信息
     #rospy.loginfo("V:%2s  T:%2s  VL:%2.3f  VR:%2.3f ",V,T,TL,TR)
     # 显示两电机设定值
     rospy.loginfo("VL:%2s  VR:%2s",VL,VR)
 
 def listener():
-    rospy.init_node('listener', anonymous=True)
-    rospy.Subscriber('chatter', Distance, callback)
+    rospy.init_node('speed_nav', anonymous=True)
+    rospy.Subscriber('distance', Distance, callback)
     rospy.spin()
     ctrl(0,0)
 
