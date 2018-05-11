@@ -81,7 +81,7 @@ def callback(data):
         # 输出
         pub.publish(motor_speed)
         ctrl(VL,VR)
-        rospy.loginfo("VL:%2s  VR:%2s  %s",VL,VR,sendbyte)
+        rospy.loginfo("VL:%2s  VR:%2s",VL,VR)
 
 def listener():
     rospy.init_node('speed_nav', anonymous=True)

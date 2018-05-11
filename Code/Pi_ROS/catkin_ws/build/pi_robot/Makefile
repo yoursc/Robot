@@ -90,17 +90,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -122,6 +111,17 @@ install/strip: preinstall
 install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -256,6 +256,21 @@ pi_robot_geneus/fast:
 .PHONY : pi_robot_geneus/fast
 
 # Convenience name for target.
+pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
+.PHONY : pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+pi_robot_generate_messages_eus: pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
+
+.PHONY : pi_robot_generate_messages_eus
+
+# fast build rule for target.
+pi_robot_generate_messages_eus/fast:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build
+.PHONY : pi_robot_generate_messages_eus/fast
+
+# Convenience name for target.
 pi_robot/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
 	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 .PHONY : pi_robot/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
@@ -359,6 +374,21 @@ roscpp_generate_messages_cpp: pi_robot/CMakeFiles/roscpp_generate_messages_cpp.d
 roscpp_generate_messages_cpp/fast:
 	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make pi_robot/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
+
+# Convenience name for target.
+pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_BMP180.dir/rule:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_BMP180.dir/rule
+.PHONY : pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_BMP180.dir/rule
+
+# Convenience name for target.
+_pi_robot_generate_messages_check_deps_BMP180: pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_BMP180.dir/rule
+
+.PHONY : _pi_robot_generate_messages_check_deps_BMP180
+
+# fast build rule for target.
+_pi_robot_generate_messages_check_deps_BMP180/fast:
+	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_BMP180.dir/build.make pi_robot/CMakeFiles/_pi_robot_generate_messages_check_deps_BMP180.dir/build
+.PHONY : _pi_robot_generate_messages_check_deps_BMP180/fast
 
 # Convenience name for target.
 pi_robot/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
@@ -556,21 +586,6 @@ _pi_robot_generate_messages_check_deps_Speed/fast:
 .PHONY : _pi_robot_generate_messages_check_deps_Speed/fast
 
 # Convenience name for target.
-pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule:
-	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
-.PHONY : pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-pi_robot_generate_messages_eus: pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/rule
-
-.PHONY : pi_robot_generate_messages_eus
-
-# fast build rule for target.
-pi_robot_generate_messages_eus/fast:
-	cd /home/pi/catkin_ws/build && $(MAKE) -f pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build.make pi_robot/CMakeFiles/pi_robot_generate_messages_eus.dir/build
-.PHONY : pi_robot_generate_messages_eus/fast
-
-# Convenience name for target.
 pi_robot/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
 	cd /home/pi/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 pi_robot/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : pi_robot/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
@@ -609,7 +624,6 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
 	@echo "... pi_robot_genpy"
 	@echo "... install/local"
 	@echo "... pi_robot_generate_messages_nodejs"
@@ -617,6 +631,7 @@ help:
 	@echo "... pi_robot_generate_messages_lisp"
 	@echo "... pi_robot_gennodejs"
 	@echo "... pi_robot_geneus"
+	@echo "... pi_robot_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... install/strip"
@@ -625,6 +640,8 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... pi_robot_generate_messages_py"
 	@echo "... roscpp_generate_messages_cpp"
+	@echo "... test"
+	@echo "... _pi_robot_generate_messages_check_deps_BMP180"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_eus"
@@ -639,7 +656,6 @@ help:
 	@echo "... std_msgs_generate_messages_eus"
 	@echo "... _pi_robot_generate_messages_check_deps_Distance"
 	@echo "... _pi_robot_generate_messages_check_deps_Speed"
-	@echo "... pi_robot_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... pi_robot_generate_messages_cpp"
 .PHONY : help

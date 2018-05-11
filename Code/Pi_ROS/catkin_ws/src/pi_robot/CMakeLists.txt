@@ -53,6 +53,7 @@ add_message_files(
   Distance.msg
   Speed.msg
   Serial_Send.msg
+  BMP180.msg
 )
 
 ## Generate services in the 'srv' folder

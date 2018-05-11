@@ -37,6 +37,7 @@ if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMP
     "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
     "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg"
     "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg"
+    "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg"
     )
 endif()
 

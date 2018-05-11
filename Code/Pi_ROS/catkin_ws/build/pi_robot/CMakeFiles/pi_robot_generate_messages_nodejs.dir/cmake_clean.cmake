@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/pi_robot_generate_messages_nodejs"
   "/home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Serial_Send.js"
   "/home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Distance.js"
+  "/home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/BMP180.js"
   "/home/pi/catkin_ws/devel/share/gennodejs/ros/pi_robot/msg/Speed.js"
 )
 

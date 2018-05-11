@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "pi_robot: 3 messages, 0 services")
+message(STATUS "pi_robot: 4 messages, 0 services")
 
 set(MSG_I_FLAGS "-Ipi_robot:/home/pi/catkin_ws/src/pi_robot/msg")
 
@@ -27,6 +27,11 @@ add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pi_robot" "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" ""
 )
 
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg" NAME_WE)
+add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pi_robot" "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg" ""
+)
+
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
 add_custom_target(_pi_robot_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "pi_robot" "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" ""
@@ -46,6 +51,12 @@ _generate_msg_cpp(pi_robot
 )
 _generate_msg_cpp(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/pi_robot
+)
+_generate_msg_cpp(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/pi_robot
@@ -75,6 +86,8 @@ get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Sen
 add_dependencies(pi_robot_generate_messages_cpp _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_cpp _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_cpp _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_cpp _pi_robot_generate_messages_check_deps_${_filename})
 
@@ -95,6 +108,12 @@ _generate_msg_eus(pi_robot
 )
 _generate_msg_eus(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/pi_robot
+)
+_generate_msg_eus(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/pi_robot
@@ -124,6 +143,8 @@ get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Sen
 add_dependencies(pi_robot_generate_messages_eus _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_eus _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_eus _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_eus _pi_robot_generate_messages_check_deps_${_filename})
 
@@ -144,6 +165,12 @@ _generate_msg_lisp(pi_robot
 )
 _generate_msg_lisp(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/pi_robot
+)
+_generate_msg_lisp(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/pi_robot
@@ -173,6 +200,8 @@ get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Sen
 add_dependencies(pi_robot_generate_messages_lisp _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_lisp _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_lisp _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_lisp _pi_robot_generate_messages_check_deps_${_filename})
 
@@ -193,6 +222,12 @@ _generate_msg_nodejs(pi_robot
 )
 _generate_msg_nodejs(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/pi_robot
+)
+_generate_msg_nodejs(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/pi_robot
@@ -222,6 +257,8 @@ get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Sen
 add_dependencies(pi_robot_generate_messages_nodejs _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_nodejs _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_nodejs _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_nodejs _pi_robot_generate_messages_check_deps_${_filename})
 
@@ -242,6 +279,12 @@ _generate_msg_py(pi_robot
 )
 _generate_msg_py(pi_robot
   "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/pi_robot
+)
+_generate_msg_py(pi_robot
+  "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/pi_robot
@@ -270,6 +313,8 @@ add_dependencies(pi_robot_generate_messages pi_robot_generate_messages_py)
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Serial_Send.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_py _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Distance.msg" NAME_WE)
+add_dependencies(pi_robot_generate_messages_py _pi_robot_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/BMP180.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_py _pi_robot_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/pi/catkin_ws/src/pi_robot/msg/Speed.msg" NAME_WE)
 add_dependencies(pi_robot_generate_messages_py _pi_robot_generate_messages_check_deps_${_filename})
